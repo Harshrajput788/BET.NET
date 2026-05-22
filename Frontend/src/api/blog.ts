@@ -23,7 +23,7 @@ export interface BlogResponse {
 export const getBlogs = async (query: any): Promise<BlogResponse> => {
   try {
     const qs = new URLSearchParams(query).toString();
-    const res = await axios.get(`https://bet-net-2.onrender.com/api/v1/blog?${qs}`);
+    const res = await axios.get(`https://bet-net-eight.vercel.app/api/v1/blog?${qs}`);
     console.log("Fetched blogs:", res.data);
     return res.status === 200 ? res.data : Promise.reject(new Error("Failed to fetch blogs"));
   } catch (error) {
@@ -34,7 +34,7 @@ export const getBlogs = async (query: any): Promise<BlogResponse> => {
 
 export const createBlog = async (formData: FormData) => {
   try {
-    const res = await axios.post("https://bet-net-2.onrender.com/api/v1/blog", formData, {
+    const res = await axios.post("https://bet-net-eight.vercel.app/api/v1/blog", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
