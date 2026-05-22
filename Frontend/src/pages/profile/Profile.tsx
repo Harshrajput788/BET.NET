@@ -7,7 +7,7 @@ const UserProfileById = () => {
   const {data,isLoading} = useQuery<IUSER>({
     queryKey: ['profile'],
     queryFn: async (): Promise<IUSER> => {
-      const res = await axios.get(`http://localhost:3001/api/v1/user/`, { withCredentials: true });
+      const res = await axios.get(`https://bet-net-3.onrender.com/api/v1/user/`, { withCredentials: true });
       return await res.data.data as IUSER;
     }
   }) 
