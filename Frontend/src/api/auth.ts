@@ -7,7 +7,7 @@ import type { VerifyEmailCodeFormData } from "../schemas/auth/Verify-email";
 
 export const signupUser = createAsyncThunk("Signup User", async (userData: SignupFormData) => {
     try {
-        const res = await axios.post("http://localhost:3001/api/v1/auth/signup", userData, { withCredentials: true })
+        const res = await axios.post("https://bet-net-2.onrender.com/api/v1/auth/signup", userData, { withCredentials: true })
         toast.success("Signup successful!")
         return res.data;
     } catch (error:any) {
@@ -18,7 +18,7 @@ export const signupUser = createAsyncThunk("Signup User", async (userData: Signu
 
 export const signInUser = createAsyncThunk("SignIn User", async (userData: SigninFormData) => {
     try {
-        const res = await axios.post("http://localhost:3001/api/v1/auth/signin", userData, { withCredentials: true })
+        const res = await axios.post("https://bet-net-2.onrender.com/api/v1/auth/signin", userData, { withCredentials: true })
         toast.success("Signin successful!")
        return {
         user: res.data.data,
@@ -32,7 +32,7 @@ export const signInUser = createAsyncThunk("SignIn User", async (userData: Signi
 
 export const sendVerificationCode = async () => {
     try {
-        const res = await axios.post("http://localhost:3001/api/v1/auth/send-email-verifiction-code", {}, { withCredentials: true });
+        const res = await axios.post("https://bet-net-2.onrender.com/api/v1/auth/send-email-verifiction-code", {}, { withCredentials: true });
         toast.success("Verification code sent to your email!")
         return res.data;
     } catch (error: any) {
@@ -43,7 +43,7 @@ export const sendVerificationCode = async () => {
 
 export const verifyEmail = createAsyncThunk("Verify Email", async (data: VerifyEmailCodeFormData) => {
     try {
-        const res = await axios.post("http://localhost:3001/api/v1/auth/verify-email", data, { withCredentials: true });
+        const res = await axios.post("https://bet-net-2.onrender.com/api/v1/auth/verify-email", data, { withCredentials: true });
         toast.success("Email verified successfully!")
         return res.data;
     } catch (error:any) {
@@ -53,14 +53,14 @@ export const verifyEmail = createAsyncThunk("Verify Email", async (data: VerifyE
 })
 
 export const getProfile = createAsyncThunk("Get Profile", async () => {
-    const res = await axios.get("http://localhost:3001/api/v1/user/", { withCredentials: true });
+    const res = await axios.get("https://bet-net-2.onrender.com/api/v1/user/", { withCredentials: true });
     console.log(res)
     return res.data.data;
 })
 
 export const signOutUser = createAsyncThunk("Sign Out User", async () => {
     try {
-        await axios.post("http://localhost:3001/api/v1/auth/signout", {}, { withCredentials: true });
+        await axios.post("https://bet-net-2.onrender.com/api/v1/auth/signout", {}, { withCredentials: true });
         toast.success("Signed out successfully!")
         return;
     } catch (error:any) {
@@ -71,7 +71,7 @@ export const signOutUser = createAsyncThunk("Sign Out User", async () => {
 
 export const sendForgotPasswordEmail = createAsyncThunk("Send Forgot Password Email", async (email: string) => {
     try {
-        const res = await axios.post("http://localhost:3001/api/v1/auth/send-forgot-password-code", { email }, { withCredentials: true });
+        const res = await axios.post("https://bet-net-2.onrender.com/api/v1/auth/send-forgot-password-code", { email }, { withCredentials: true });
         toast.success("Forgot password email sent successfully!")
         return res.data.email;
     } catch (error:any) {
@@ -82,7 +82,7 @@ export const sendForgotPasswordEmail = createAsyncThunk("Send Forgot Password Em
 
 export const resetPassword = createAsyncThunk("Reset Password", async (data: { email: string, forgotPasswordCode: string, password: string }) => {
     try {
-        const res = await axios.post("http://localhost:3001/api/v1/auth/reset-password", data, { withCredentials: true });
+        const res = await axios.post("https://bet-net-2.onrender.com/api/v1/auth/reset-password", data, { withCredentials: true });
         toast.success("Password reset successfully!")
         return res.data;
     } catch (error:any) {
