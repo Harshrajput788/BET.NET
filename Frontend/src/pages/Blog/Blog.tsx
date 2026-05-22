@@ -11,7 +11,7 @@ const BlogById: React.FC = () => {
   const {data, isLoading} = useQuery<IBLOG>({
     queryKey: ['blog', id],
     queryFn: async (): Promise<IBLOG> => {
-      const res = await axios.get(`http://localhost:3001/api/v1/blog/${id}`);
+      const res = await axios.get(`https://bet-net-3.onrender.com/api/v1/blog/${id}`);
       console.log("Fetched blog:", res.data);
       return await res.data.data as IBLOG;
     }
