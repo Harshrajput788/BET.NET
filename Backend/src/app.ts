@@ -22,6 +22,8 @@ app.get("/health", (_, res) => {
     });
 });
 
+app.get("/", (req, res) => res.send("API is running!"));
+
 //Rest API's 
 
 app.use("/api/v1/auth",authRouter);
